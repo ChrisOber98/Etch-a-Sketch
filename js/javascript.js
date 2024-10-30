@@ -16,9 +16,6 @@ function createBoard(size) {
         for (let j = 0; j < size; j++) {
             const newDiv = document.createElement("div");
 
-            newDiv.style.borderColor = "red";
-            newDiv.style.borderWidth = "1px";
-            newDiv.style.borderStyle = "solid";
             newDiv.style.width = "100px";
             newDiv.style.height = "100px";
 
@@ -34,25 +31,20 @@ function createBoard(size) {
     }
 }
 
-// Create the initial board
 createBoard(boardSize);
 
-// Function to reset the board with user input size
 function resetBoard() {
     let inputSize = prompt("Size (max 100): ");
 
-    // Convert the input size to a number
     inputSize = Number(inputSize);
 
     if (inputSize > 100 || isNaN(inputSize) || inputSize <= 0) {
         alert("SIZE TOO BIG DUDE! Please enter a number between 1 and 100.");
-        return; // Exit the function if the size is invalid
+        return;
     }
 
-    // Create a new board with the specified size
     createBoard(inputSize);
 }
 
-// Get the button and set up the event listener
-const button = document.getElementById("inputButton"); // Change selector to use ID without dot
+const button = document.getElementById("inputButton");
 button.addEventListener('click', resetBoard);
